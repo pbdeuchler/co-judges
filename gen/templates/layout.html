@@ -1,0 +1,76 @@
+{{define "top"}}<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Title}} · Bench Record</title>
+<meta name="description" content="{{.Description}}">
+<link rel="preload" href="{{.Root}}fonts/fira-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{.Root}}style.css">
+<link rel="icon" href="{{.Root}}favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="band">
+  <a class="mark" href="{{.Root}}index.html"><span class="sq" aria-hidden="true">J</span>Bench Record</a>
+  <nav aria-label="Primary">
+    <a href="{{.Root}}index.html"{{if eq .Nav "ballot"}} aria-current="page"{{end}}>My ballot</a>
+    <a href="{{.Root}}judges/index.html"{{if eq .Nav "judges"}} aria-current="page"{{end}}>All judges</a>
+    <a href="{{.Root}}method/index.html"{{if eq .Nav "method"}} aria-current="page"{{end}}>Method</a>
+  </nav>
+  {{template "countyPicker" .}}
+</header>
+<aside class="caveat" aria-labelledby="caveat-h">
+  <div class="wrap">
+    <h2 id="caveat-h">Read these numbers with care</h2>
+    <ul>
+      <li><b>Few people answer each survey.</b> In {{.Year}}, half of judges got {{medianResponses .Year}} or fewer responses. A handful of people can move a score a lot.</li>
+      <li><b>Small gaps mean little.</b> Judges a few places apart are about the same.</li>
+      <li><b>Low does not mean bad.</b> A low rank means lower than other judges. Most judges score well.</li>
+      <li><b>The commission sees more.</b> It also interviews each judge, watches court and reads rulings. Its recommendation is the fuller review.</li>
+    </ul>
+    <p>Use these numbers as one piece of the picture. <a href="{{.Root}}method/index.html">How they are built</a></p>
+    <p class="stamp">State reports last scraped <time datetime="{{.Meta.ScrapedAt.UTC.Format "2006-01-02T15:04:05Z"}}">{{stamp .Meta.ScrapedAt}}</time> · Site updated <time datetime="{{.Meta.BuiltAt.UTC.Format "2006-01-02T15:04:05Z"}}">{{stamp .Meta.BuiltAt}}</time></p>
+  </div>
+</aside>
+{{end}}
+
+{{define "countyPicker"}}
+<form class="pick" action="{{.Root}}index.html" data-root="{{.Root}}">
+  <label for="county">County</label>
+  <select id="county" name="county">
+    {{if not .County}}<option value="">Choose…</option>{{end}}
+    {{range .Counties}}<option value="{{slug .}}"{{if eq . $.County}} selected{{end}}>{{.}}</option>{{end}}
+  </select>
+  <button type="submit">Go</button>
+</form>
+{{end}}
+
+{{define "bottom"}}
+<footer class="foot">
+  <p>Independent and unofficial. Every number comes from the Colorado Office of Judicial Performance Evaluation’s published reports at <a href="https://judicialperformance.colorado.gov/">judicialperformance.colorado.gov</a>. Rankings and percentiles are this site’s calculation; <a href="{{.Root}}method/index.html">see the method</a>.</p>
+</footer>
+<script src="{{.Root}}app.js" defer></script>
+</body>
+</html>
+{{end}}
+
+{{define "square"}}{{with .E}}
+<div class="sq-num{{if low .}} low{{end}}{{if not .Ranked}} none{{end}}">
+  {{$h := headline .}}{{if not .Ranked}}<b>–</b><small>no survey</small>{{else if $h.Small}}<b>{{$h.Rank}}</b><small>of {{$h.Of}}</small>{{else}}<b>{{sign $h.Standing}}</b><small>{{if .Small}}statewide{{else}}percentile{{end}}</small>{{end}}
+</div>{{end}}{{end}}
+
+{{define "commission"}}{{if eq .Recommendation "does_not_meet"}}<span class="flag"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 1.5 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 6v4M8 11.6v.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Commission: does not meet standards{{with .Vote.Tally .Recommendation}} ({{.}}){{end}}</span>{{else if eq .Recommendation "meets"}}Commission: meets standards{{if .Vote.Split}} <span class="vote-split"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 1v14M2 8h12" stroke="currentColor" stroke-width="2"/></svg>Split vote{{with .Vote.Tally .Recommendation}} {{.}}{{end}}</span>{{else}}{{with .Vote.Tally .Recommendation}} ({{.}}){{end}}{{end}}{{else}}Commission: {{.RecommendationText}}{{end}}{{end}}
+
+{{define "row"}}{{$r := .Root}}{{with .E}}
+<a class="row{{if low .}} is-low{{end}}" href="{{$r}}judges/{{.Key}}/index.html#y{{.Year}}">
+  {{template "square" (row $r .)}}
+  <span class="who">
+    <span class="nm">{{.Name}}</span>
+    <span class="ct">{{court .Level}} · {{where .}}</span>
+    <span class="ct">{{template "commission" .}}</span>
+    {{if low .}}<span class="ct why">Weakest: {{weakest .}}</span>{{end}}
+  </span>
+  <span class="dist">{{if .Ranked}}{{rowHist .}}<span class="rk">Rank {{.Rank}} of {{.Of}} · statewide {{.Global.Rank}} of {{.Global.Of}}</span>{{else}}<span class="rk">{{if .InsufficientResponses}}Too few survey responses to publish{{else}}No survey report published{{end}}</span>{{end}}</span>
+  <span class="fig">{{if .Ranked}}<b>{{f2 .Metrics.Overall}}</b><span>survey grade</span><span>{{.Survey.Responses}} responses</span><span>{{resp .Placement}}</span>{{end}}</span>
+</a>{{end}}{{end}}

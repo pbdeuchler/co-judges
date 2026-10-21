@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T04:49:46.882127+00:00",
+  "title": "Design System: Bench Record",
+  "extensions": {
+    "colorMeta": {
+      "sign": {
+        "role": "primary",
+        "displayName": "Sign Yellow",
+        "canonical": "#ffcc00",
+        "tonalRamp": [
+          "oklch(15% 0.060 90.4)",
+          "oklch(26% 0.177 90.4)",
+          "oklch(37% 0.177 90.4)",
+          "oklch(48% 0.177 90.4)",
+          "oklch(59% 0.177 90.4)",
+          "oklch(70% 0.177 90.4)",
+          "oklch(82% 0.177 90.4)",
+          "oklch(95% 0.060 90.4)"
+        ]
+      },
+      "you": {
+        "role": "secondary",
+        "displayName": "Course Purple",
+        "canonical": "#6a2c91",
+        "tonalRamp": [
+          "oklch(15% 0.060 309.3)",
+          "oklch(26% 0.162 309.3)",
+          "oklch(37% 0.162 309.3)",
+          "oklch(48% 0.162 309.3)",
+          "oklch(59% 0.162 309.3)",
+          "oklch(70% 0.162 309.3)",
+          "oklch(82% 0.162 309.3)",
+          "oklch(95% 0.060 309.3)"
+        ]
+      },
+      "alert": {
+        "role": "tertiary",
+        "displayName": "Verdict Red",
+        "canonical": "#a3201b",
+        "tonalRamp": [
+          "oklch(15% 0.060 28.1)",
+          "oklch(26% 0.168 28.1)",
+          "oklch(37% 0.168 28.1)",
+          "oklch(48% 0.168 28.1)",
+          "oklch(59% 0.168 28.1)",
+          "oklch(70% 0.168 28.1)",
+          "oklch(82% 0.168 28.1)",
+          "oklch(95% 0.060 28.1)"
+        ]
+      },
+      "alert-soft": {
+        "role": "tertiary",
+        "displayName": "Verdict Blush",
+        "canonical": "#fbe3e1",
+        "tonalRamp": [
+          "oklch(15% 0.027 23.4)",
+          "oklch(26% 0.027 23.4)",
+          "oklch(37% 0.027 23.4)",
+          "oklch(48% 0.027 23.4)",
+          "oklch(59% 0.027 23.4)",
+          "oklch(70% 0.027 23.4)",
+          "oklch(82% 0.027 23.4)",
+          "oklch(95% 0.027 23.4)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(37% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(59% 0.000 89.9)",
+          "oklch(70% 0.000 89.9)",
+          "oklch(82% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#4f4e49",
+        "tonalRamp": [
+          "oklch(15% 0.008 97.5)",
+          "oklch(26% 0.008 97.5)",
+          "oklch(37% 0.008 97.5)",
+          "oklch(48% 0.008 97.5)",
+          "oklch(59% 0.008 97.5)",
+          "oklch(70% 0.008 97.5)",
+          "oklch(82% 0.008 97.5)",
+          "oklch(95% 0.008 97.5)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Concourse Ground",
+        "canonical": "#f1f1ee",
+        "tonalRamp": [
+          "oklch(15% 0.004 106.5)",
+          "oklch(26% 0.004 106.5)",
+          "oklch(37% 0.004 106.5)",
+          "oklch(48% 0.004 106.5)",
+          "oklch(59% 0.004 106.5)",
+          "oklch(70% 0.004 106.5)",
+          "oklch(82% 0.004 106.5)",
+          "oklch(95% 0.004 106.5)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(37% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(59% 0.000 89.9)",
+          "oklch(70% 0.000 89.9)",
+          "oklch(82% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#d9d8d2",
+        "tonalRamp": [
+          "oklch(15% 0.008 98.9)",
+          "oklch(26% 0.008 98.9)",
+          "oklch(37% 0.008 98.9)",
+          "oklch(48% 0.008 98.9)",
+          "oklch(59% 0.008 98.9)",
+          "oklch(70% 0.008 98.9)",
+          "oklch(82% 0.008 98.9)",
+          "oklch(95% 0.008 98.9)"
+        ]
+      },
+      "ctx": {
+        "role": "neutral",
+        "displayName": "Cohort Gray",
+        "canonical": "#b9b7ae",
+        "tonalRamp": [
+          "oklch(15% 0.013 96.5)",
+          "oklch(26% 0.013 96.5)",
+          "oklch(37% 0.013 96.5)",
+          "oklch(48% 0.013 96.5)",
+          "oklch(59% 0.013 96.5)",
+          "oklch(70% 0.013 96.5)",
+          "oklch(82% 0.013 96.5)",
+          "oklch(95% 0.013 96.5)"
+        ]
+      },
+      "tint": {
+        "role": "neutral",
+        "displayName": "Row Tint",
+        "canonical": "#e6e5df",
+        "tonalRamp": [
+          "oklch(15% 0.008 98.9)",
+          "oklch(26% 0.008 98.9)",
+          "oklch(37% 0.008 98.9)",
+          "oklch(48% 0.008 98.9)",
+          "oklch(59% 0.008 98.9)",
+          "oklch(70% 0.008 98.9)",
+          "oklch(82% 0.008 98.9)",
+          "oklch(95% 0.008 98.9)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Percentile inside the black square; the loudest thing on any page."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page h1 only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Sign panels, rail and section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Judge name in a ranked row."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text with tabular figures."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Court lines, tables, footer, notes."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Unit word under a percentile numeral only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "frame-low",
+        "value": "inset 0 0 0 4px #111",
+        "purpose": "Ink frame on an inverted lowest-quarter percentile square."
+      },
+      {
+        "name": "frame-low-cell",
+        "value": "inset 0 0 0 2px #111",
+        "purpose": "Frame around a low score in tables."
+      },
+      {
+        "name": "dot-halo",
+        "value": "0 0 0 2px #fff",
+        "purpose": "Separates the purple dot from its range line."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "All state transitions."
+      },
+      {
+        "name": "row-border",
+        "value": "border-color .2s",
+        "purpose": "Row hover/focus border to ink."
+      },
+      {
+        "name": "cohort-dim",
+        "value": "fill .35s, opacity .35s",
+        "purpose": "Cohort bars fade to 35% on row hover/focus; purple tick scales 1.15 from baseline."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition:none",
+        "purpose": "All transitions removed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "1100px"
+      },
+      {
+        "name": "phone",
+        "value": "720px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Wayfinding Band",
+      "kind": "nav",
+      "refersTo": "band",
+      "description": "Top band on every page: mark, primary nav, county picker.",
+      "html": "<header class=\"ds-band\"><a class=\"ds-mark\" href=\"#\"><span class=\"ds-sq\">J</span>Bench Record</a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">My ballot</a><a href=\"#\">All judges</a><a href=\"#\">Method</a></nav></header>",
+      "css": ":root{--sign:#ffcc00;--ink:#111;--ink-2:#4f4e49;--panel:#fff;--rule:#d9d8d2;--ctx:#b9b7ae;--you:#6a2c91;--alert:#a3201b} .ds-band{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;background:#ffcc00;color:#111;border-bottom:6px solid #111;display:flex;align-items:center;gap:32px;padding:16px 48px;min-height:88px;flex-wrap:wrap} .ds-mark{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.625rem;color:inherit;text-decoration:none;letter-spacing:-.01em} .ds-sq{width:52px;height:52px;background:#111;color:#ffcc00;display:grid;place-items:center} .ds-nav{display:flex;gap:24px;font-weight:500;font-size:1.125rem} .ds-nav a{color:inherit;text-decoration:none;padding:4px 0;border-bottom:3px solid transparent} .ds-nav a:hover{border-bottom-color:rgba(0,0,0,.35)} .ds-nav a[aria-current]{border-bottom-color:#111;font-weight:700} .ds-band a:focus-visible{outline:3px solid #111;outline-offset:2px}"
+    },
+    {
+      "name": "Sign Panel",
+      "kind": "custom",
+      "refersTo": "sign-panel",
+      "description": "Yellow sign heading each decision group.",
+      "html": "<h2 class=\"ds-sign\"><span class=\"ds-pic\">D</span>20th Judicial District · District Court</h2>",
+      "css": ".ds-sign{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;margin:0;display:flex;align-items:center;gap:12px;background:#ffcc00;color:#111;font-size:1.125rem;font-weight:700;padding:8px 16px 8px 8px} .ds-pic{width:40px;height:40px;background:#111;color:#ffcc00;display:grid;place-items:center;font-weight:800;font-size:1.125rem;flex:none}"
+    },
+    {
+      "name": "Percentile Square",
+      "kind": "custom",
+      "refersTo": "percentile-square",
+      "description": "Monumental percentile in a black square; lowest quarter inverts to a white framed square.",
+      "html": "<div style=\"display:flex;gap:12px\"><div class=\"ds-sqnum\"><b>84</b><small>percentile</small></div><div class=\"ds-sqnum ds-low\"><b>11</b><small>percentile</small></div></div>",
+      "css": ".ds-sqnum{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;width:112px;height:88px;background:#111;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1} .ds-sqnum b{font-size:3.5rem;font-weight:800;letter-spacing:-.02em} .ds-sqnum small{font-size:.6875rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-top:4px} .ds-sqnum.ds-low{background:#fff;color:#111;box-shadow:inset 0 0 0 4px #111}"
+    },
+    {
+      "name": "Ranked Row",
+      "kind": "card",
+      "refersTo": "ranked-row",
+      "description": "One judge on the ballot: percentile (or raw rank for groups of 10 or fewer), name and court, peer histogram with peer and statewide rank, grade with response count and response standing. Whole row is a link.",
+      "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-rsq\"><b>84</b><small>percentile</small></span><span class=\"ds-rpic\">D</span><span class=\"ds-who\"><span class=\"ds-nm\">Michael Kotlarczyk</span><span class=\"ds-ct\">District Court · 20th Judicial District</span></span><svg class=\"ds-hist\" viewBox=\"0 0 200 48\" preserveAspectRatio=\"none\"><rect class=\"c\" x=\"1\" y=\"30\" width=\"18\" height=\"14\"/><rect class=\"c\" x=\"21\" y=\"20\" width=\"18\" height=\"24\"/><rect class=\"c\" x=\"41\" y=\"10\" width=\"18\" height=\"34\"/><rect class=\"c\" x=\"61\" y=\"4\" width=\"18\" height=\"40\"/><rect class=\"c\" x=\"81\" y=\"0\" width=\"18\" height=\"44\"/><rect class=\"c\" x=\"101\" y=\"8\" width=\"18\" height=\"36\"/><rect class=\"y\" x=\"121\" y=\"16\" width=\"18\" height=\"28\"/><rect class=\"c\" x=\"141\" y=\"26\" width=\"18\" height=\"18\"/><rect class=\"c\" x=\"161\" y=\"34\" width=\"18\" height=\"10\"/><rect class=\"c\" x=\"181\" y=\"40\" width=\"18\" height=\"4\"/><rect class=\"t\" x=\"128\" y=\"0\" width=\"2\" height=\"48\"/></svg><span class=\"ds-fig\"><b>3.60</b><span>25 responses</span></span></a>",
+      "css": ".ds-row{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;display:grid;grid-template-columns:112px 48px minmax(0,1fr) 200px 100px;gap:24px;align-items:center;background:#fff;color:#111;border:1px solid #d9d8d2;padding:12px 24px 12px 12px;text-decoration:none;transition:border-color .2s cubic-bezier(.16,1,.3,1)} .ds-row:hover,.ds-row:focus-visible{border-color:#111} .ds-row:focus-visible{outline:3px solid #111;outline-offset:2px} .ds-rsq{height:88px;background:#111;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1} .ds-rsq b{font-size:3.5rem;font-weight:800} .ds-rsq small{font-size:.6875rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase} .ds-rpic{width:48px;height:48px;border:3px solid #111;display:grid;place-items:center;font-weight:800;font-size:1.375rem} .ds-who{display:grid;gap:2px} .ds-nm{font-weight:700;font-size:1.25rem} .ds-ct{color:#4f4e49;font-size:.875rem} .ds-hist{width:100%;height:44px;overflow:visible} .ds-hist .c{fill:#b9b7ae;transition:opacity .35s cubic-bezier(.16,1,.3,1)} .ds-hist .y,.ds-hist .t{fill:#6a2c91} .ds-row:hover .ds-hist .c{opacity:.35} .ds-fig{display:grid;text-align:right} .ds-fig b{font-size:1.5rem;font-weight:700} .ds-fig span{font-size:.8125rem;color:#4f4e49}"
+    },
+    {
+      "name": "Category Range Plot",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Dot plot on the peer min-max range: ink median tick, purple dot for this judge.",
+      "html": "<span class=\"ds-bar\"><em style=\"left:62%\"></em><i style=\"left:78%\"></i></span><span class=\"ds-range\"><span>1.80</span><span>3.90</span></span>",
+      "css": ".ds-bar{position:relative;display:block;width:320px;height:2px;margin:9px 6px;background:#b9b7ae} .ds-bar i{position:absolute;top:-6px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:#6a2c91;box-shadow:0 0 0 2px #fff} .ds-bar em{position:absolute;top:-8px;height:18px;width:2px;margin-left:-1px;background:#111} .ds-range{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;display:flex;justify-content:space-between;width:332px;font-size:.875rem;color:#4f4e49}"
+    },
+    {
+      "name": "County Select",
+      "kind": "input",
+      "refersTo": "select",
+      "description": "Square white select with 2px ink border; the county picker in the band and table filters.",
+      "html": "<label class=\"ds-pick\">County <select class=\"ds-select\"><option>Boulder</option><option>Denver</option></select></label>",
+      "css": ".ds-pick{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.125rem;color:#111} .ds-select{font:inherit;color:#111;background:#fff;border:2px solid #111;border-radius:0;padding:8px 12px;min-height:44px} .ds-select:focus-visible{outline:3px solid #111;outline-offset:2px}"
+    },
+    {
+      "name": "Go Button",
+      "kind": "button",
+      "refersTo": "select",
+      "description": "No-JS submit for the county picker; same square ink-bordered form as inputs.",
+      "html": "<button class=\"ds-btn\" type=\"button\">Go</button>",
+      "css": ".ds-btn{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;font-size:1.125rem;font-weight:700;color:#111;background:#fff;border:2px solid #111;border-radius:0;padding:8px 12px;min-height:44px;cursor:pointer} .ds-btn:focus-visible{outline:3px solid #111;outline-offset:2px}"
+    },
+    {
+      "name": "Commission Flag",
+      "kind": "chip",
+      "refersTo": "",
+      "description": "The only use of alert red: a 'does not meet standards' verdict with a triangle icon and words.",
+      "html": "<span class=\"ds-flag\"><svg aria-hidden=\"true\" viewBox=\"0 0 16 16\"><path d=\"M8 1.5 15 14H1z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/><path d=\"M8 6v4M8 11.6v.4\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/></svg>Commission: does not meet standards (6–4)</span>",
+      "css": ".ds-flag{font-family:'Fira Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:4px;color:#a3201b;background:#fbe3e1;padding:0 8px;font-weight:700;font-size:.875rem} .ds-flag svg{width:1em;height:1em;flex:none}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Concourse of Decisions",
+    "overview": "The site is terminal wayfinding signage applied to a ballot. Each decision point (a court group on the ballot, a cycle on a judge's page) is announced by a saturated yellow sign, the way an airport labels a gate. Under each sign, judges hang as white rows on a warm gray-white ground, each led by its percentile in a black inset square at monumental scale. Hierarchy comes from scale contrast inside one humanist sans, not from color or decoration.\n\nColor is scarce and assigned, not themed. Yellow means \"you are here / go here\". Purple means \"this judge\" and nothing else. Everything else is ink, gray, and white. The comparison itself (where one judge sits in a real distribution of peers) is the visual signature: histograms of the peer group (same cycle and court level), gray bars with one purple mark.\n\nThe world is light-ground only, flat, square-cornered, and dense in the way a departures board is dense: many rows, each instantly scannable left to right (number, court, name, distribution, grade and response count).",
+    "keyCharacteristics": [
+      "Yellow wayfinding signs head every decision group. No court letter squares: single letters read as grades next to rankings.",
+      "Percentile numerals in black squares at 40–56px, weight 800, tabular figures.",
+      "One reserved ink (purple) marks this judge in every chart.",
+      "Square corners, hairline borders, no shadows for depth.",
+      "Fira Sans in sentence case throughout; hierarchy by size and weight alone."
+    ],
+    "rules": [
+      {
+        "name": "The Wayfinding Yellow Rule",
+        "body": "Yellow appears only on surfaces that orient: where you are, which group you are in, where to go next. If removing it would not change how someone navigates, it does not belong.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Reserved Ink Rule",
+        "body": "Purple marks this judge and only this judge. A chart without a \"this judge\" has no purple.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scale Contrast Rule",
+        "body": "Hierarchy is made by size and weight jumps within Fira Sans, never by a second family or by color.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Headings, nav, and signs are sentence case. Uppercase is limited to the unit under a numeral.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Concourse Rule",
+        "body": "Surfaces never lift. State is shown by border weight (hairline to ink on hover) and by dimming context, not by elevation.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** head every decision group with a yellow sign panel.",
+      "**Do** lead every judge with the percentile in a black square, and invert to a white square with a 4px ink frame for the lowest quarter.",
+      "**Do** show this judge in purple (#6a2c91) against cohort gray in every distribution, and keep response counts next to every score.",
+      "**Do** keep corners square and depth flat; signal hover by switching the hairline border to ink.",
+      "**Do** pair every color signal with a shape or words (inverted square, triangle plus \"does not meet standards\")."
+    ],
+    "donts": [
+      "**Don't** use yellow inside data, on cards, or as a highlight for emphasis.",
+      "**Don't** use purple for links, focus, headings, or anything other than this judge.",
+      "**Don't** add drop shadows or rounded corners to chrome.",
+      "**Don't** introduce a second typeface or set headings in uppercase.",
+      "**Don't** add a dark theme; the world is light ground only."
+    ]
+  }
+}

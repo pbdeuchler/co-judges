@@ -1,0 +1,45 @@
+{{define "method"}}{{template "top" .}}
+<main id="main" class="wrap prose">
+  <h1>How the numbers work</h1>
+
+  <h2>Where the numbers come from</h2>
+  <p>Colorado’s Office of Judicial Performance Evaluation publishes, for every judge standing for retention, a commission recommendation and a survey report prepared by Market Decisions Research. This site scrapes those pages and PDFs for the 2016, 2018, 2020, 2022, 2024 and 2026 cycles ({{len .Entries}} evaluations) and links each number back to its source PDF.</p>
+
+  <h2>The three survey numbers</h2>
+  <ul>
+    <li><b>Overall survey grade</b>, 0 to 4, as printed in the report.</li>
+    <li><b>Mean of category scores</b>: the average of the report’s category scores (case management, application of law, communications, diligence, demeanor, fairness; appellate reports use general, writing and inter-judge). The 2016 and 2018 reports split categories by attorneys and non-attorneys; the two are averaged.</li>
+    <li><b>Attorneys saying “meets performance standards”</b>; in 2016 the question was whether to retain.</li>
+  </ul>
+
+  <h2>Percentile and composite index</h2>
+  <p>Each number is turned into a percentile among the evaluations at the same court level <b>in the same cycle</b>. Ties count half, so judges with identical grades share a percentile. The composite index is the plain average of the three percentiles, and rank orders evaluations by it; equal composites share a rank.</p>
+  <p>The big number on every row is the judge’s <b>percentile</b>: the share of same-level evaluations with a lower composite index. A judge at 81 did better than 81% of that cycle’s peers. The bottom quarter (under 25) is outlined rather than filled.</p>
+  <p>Groups of 10 or fewer judges (every appellate cycle) are too small for a meaningful percentile. Their rank within the group is shown as a raw rank, and the big number is their <b>statewide</b> percentile: the same composite computed across all court levels in that cycle.</p>
+  <p>Court levels: <b>appellate</b> (Supreme Court and Court of Appeals, which share one survey instrument), <b>district court</b> (including Denver juvenile and probate) and <b>county court</b>.</p>
+
+  <h2>Caveats</h2>
+  <ul>
+    <li><b>Why cycles are not pooled.</b> The survey wording changed: A–F grades through 2022, a frequency scale in 2024, an inadequate-to-outstanding scale in 2026, all mapped to 0–4. Median overall grade by cycle:
+      <table class="data">
+        <thead><tr><th scope="col">Court</th>{{range years}}<th scope="col" class="n">{{.}}</th>{{end}}</tr></thead>
+        <tbody>
+        {{range $c := (list "district" "county" "appellate")}}<tr><th scope="row">{{$c}}</th>{{range years}}<td class="n">{{medianGrade $c .}}</td>{{end}}</tr>{{end}}
+        </tbody>
+      </table>
+      District and county grades dropped about 0.3 when the 2024 scale arrived, while appellate grades did not. Pooling cycles would push every recent trial judge down for a change in the questionnaire, so each judge is compared only with judges evaluated in the same cycle. A percentile from 2018 and one from 2026 each describe standing among that year’s peers; the raw grades are not comparable across the scale change.</li>
+    <li><b>Small appellate groups.</b> Only 4–11 appellate judges stand in a cycle, so one place moves an appellate percentile by roughly 10–25 points.</li>
+    <li><b>Small samples.</b> Some judges have a dozen responses. Response counts sit beside every grade; treat close percentiles as ties.</li>
+    <li><b>Rounding.</b> Reports from 2020 on print grades to one decimal, which creates ties. Figures here are shown to two decimals for consistency, not added precision.</li>
+    <li><b>Not published.</b> When the state withheld a survey for too few responses, the judge is listed but not ranked.</li>
+    <li><b>Commission votes are shown, not scored.</b> About nine in ten votes are unanimous. Split votes are flagged on every row and counted in the ballot summary, but they do not change rank or percentile.</li>
+    <li><b>The commission decides, not the survey.</b> The commission’s recommendation also weighs interviews, courtroom observation, written opinions and case data. It is reported as published.</li>
+  </ul>
+
+  <h2>Your ballot</h2>
+  <p>Every voter decides on the Supreme Court and Court of Appeals judges. District judges appear on the ballots of their district’s counties, and county judges on their own county’s ballot. The 23rd District (Douglas, Elbert, Lincoln) separated from the 18th in 2025.</p>
+
+  <h2>Independence</h2>
+  <p>This is an independent project, not affiliated with the State of Colorado. The state’s own guide is at <a href="https://judicialperformance.colorado.gov/">judicialperformance.colorado.gov</a>.</p>
+</main>
+{{template "bottom" .}}{{end}}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#f2f3f1;--ink:#121417;--blue:#2b6cb0;--amb:#e0a100;--mute:#6a7078;--rule:#d5d8d3}
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;background:var(--g);color:var(--ink);font:16px/1.4 Archivo,sans-serif}
+header{background:var(--ink);color:#fff;height:64px;display:flex;align-items:center;padding:0 40px;gap:32px}
+.t{font-weight:800;font-size:22px;letter-spacing:.02em}
+nav{display:flex;gap:24px;color:#c9ced4}nav b{color:#fff}
+.sel{margin-left:auto}select{font:600 15px Archivo;padding:7px 28px 7px 10px}
+main{display:grid;grid-template-columns:1fr 520px;gap:32px;padding:32px 40px}
+h1{font-weight:800;font-size:28px;margin-bottom:16px}
+.board{background:#fff;border:1px solid var(--rule)}
+.r{display:grid;grid-template-columns:64px 1fr 120px 90px 110px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+.r.h{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);padding:10px 18px}
+.r.sel{background:#eaf1fa;box-shadow:inset 4px 0 var(--blue)}
+.rk{font:500 22px "JetBrains Mono"}.nm{font-weight:600}.ct{font-size:13px;color:var(--mute)}
+.alert{color:#8a5a00;background:#fff4d6;padding:2px 6px;font-size:13px;font-weight:600}
+.pass{background:#fff;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.ph{background:var(--blue);color:#fff;padding:18px 24px}.ph b{display:block;font-size:26px;font-weight:800}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px dashed var(--rule)}
+.seg div{padding:16px 24px;border-right:1px dashed var(--rule)}
+.seg small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.seg b{font:500 30px "JetBrains Mono"}
+.code{margin:18px 24px;height:56px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,#fff 2px 4px,var(--ink) 4px 5px,#fff 5px 8px)}
+</style></head><body>
+<header><div class="t">BENCH BOARD</div><nav><b>My ballot</b><span>All judges</span><span>Method</span></nav><div class="sel"><select><option>Boulder County</option></select></div></header>
+<main><section><h1>2026 ballot · Boulder County</h1><div class="board">
+<div class="r h"><span>Rank</span><span>Judge</span><span>Percentile</span><span>Score</span><span>Commission</span></div>
+<div class="r sel"><span class="rk">041</span><div><div class="nm">Michael Kotlarczyk</div><div class="ct">District · 20th</div></div><span>91</span><span>3.6</span><span>Meets</span></div>
+<div class="r"><span class="rk">063</span><div><div class="nm">Elizabeth Brodsky</div><div class="ct">County · Boulder</div></div><span>86</span><span>3.5</span><span>Meets</span></div>
+<div class="r"><span class="rk">188</span><div><div class="nm">Nancy Salomone</div><div class="ct">District · 20th</div></div><span>58</span><span>3.2</span><span>Meets</span></div>
+<div class="r"><span class="rk">201</span><div><div class="nm">J. Chris Larson</div><div class="ct">District · 20th</div></div><span>55</span><span>3.2</span><span>Meets</span></div>
+<div class="r"><span class="rk">371</span><div><div class="nm">Monica Haenselman</div><div class="ct">County · Boulder</div></div><span>9</span><span>2.5</span><span><span class="alert">Low survey</span></span></div>
+</div></section>
+<aside class="pass"><div class="ph"><small>RETENTION 2026 · DISTRICT COURT</small><b>Michael Kotlarczyk</b></div>
+<div class="seg"><div><small>Rank</small><b>41</b></div><div><small>Percentile</small><b>91</b></div><div><small>Responses</small><b>25</b></div></div>
+<div class="seg"><div><small>Survey</small><b>3.6</b></div><div><small>Attys meets</small><b>100%</b></div><div><small>Non-attys</small><b>71%</b></div></div>
+<div class="code"></div></aside></main></body></html>

@@ -1,0 +1,35 @@
+{{define "ballot"}}{{template "top" .}}
+<main id="main" class="wrap">
+  <section class="lead">
+    <h1>{{.County}} County · {{.Year}} retention ballot</h1>
+    <p class="sub">Each judge’s percentile among all {{.Year}} judges at the same court level statewide. Lowest quarter is outlined.</p>
+  </section>
+  <div class="split">
+    <div>
+      {{range .Groups}}
+      <section class="group" aria-labelledby="g-{{.ID}}">
+        <h2 class="sign" id="g-{{.ID}}">{{.Title}}</h2>
+        {{if .Entries}}<div class="rows">{{range .Entries}}{{template "row" (row $.Root .)}}{{end}}</div>
+        {{else}}<p class="empty">No {{.Title}} judges stand for retention here in {{$.Year}}.</p>{{end}}
+      </section>
+      {{end}}
+    </div>
+    <aside class="glance" aria-label="This ballot at a glance">
+      <h2>This ballot at a glance</h2>
+      {{$g := glance (flatten .Groups)}}
+      <dl>
+        <div><dt>Judges on your ballot</dt><dd>{{$g.Total}}</dd></div>
+        <div><dt>In the bottom quarter of peers</dt><dd>{{$g.Low}}</dd></div>
+        <div><dt>Commission said “does not meet”</dt><dd>{{$g.NotMeet}}</dd></div>
+  <div><dt>Commission vote was split</dt><dd>{{$g.Split}}</dd></div>
+        <div><dt>No survey published</dt><dd>{{$g.NoSurvey}}</dd></div>
+      </dl>
+      <div class="read">
+      <h2>Reading a row</h2>
+      <p class="note">The big number is the judge’s percentile among {{.Year}} judges at the same court level. Supreme Court and Court of Appeals judges form groups too small for a percentile, so their big number is their percentile among all judges statewide (marked “statewide”). The bars show that group; this judge is the purple mark. Under them: rank in the group and statewide across all courts. The survey grade (0–4) and response count come from the state’s report; the last line ranks the response count.</p>
+      <p class="note"><a href="{{.Root}}method/index.html">How the percentile is built</a></p>
+      </div>
+    </aside>
+  </div>
+</main>
+{{template "bottom" .}}{{end}}

@@ -1,0 +1,106 @@
+{{define "judge"}}{{template "top" .}}{{$j := .Judge}}{{$l := $j.Latest}}
+<main id="main" class="wrap">
+  <section class="lead person">
+    {{template "square" (row .Root $l)}}
+    <div>
+      <h1>{{$l.Name}}</h1>
+      <p class="sub">{{court $l.Level}} · {{where $l}} · retention evaluations: {{range $i, $e := $j.Entries}}{{if $i}}, {{end}}<a href="#y{{$e.Year}}">{{$e.Year}}</a>{{end}}</p>
+    </div>
+  </section>
+
+  {{range $j.Entries}}{{$e := .}}
+  <section class="cycle" id="y{{.Year}}" aria-labelledby="h{{.Year}}">
+    <h2 class="sign" id="h{{.Year}}">{{.Year}} retention · {{court .Level}} · {{where .}}</h2>
+    {{if .Ranked}}
+    <div class="metrics standing-grid">
+      <figure class="metric">
+        <figcaption>Among {{.Year}} {{cohort .Level}} judges</figcaption>
+        <p class="val">{{if .Small}}<b>{{ordinal .Rank}}</b> <span>of {{.Of}} (too few for a percentile)</span>{{else}}<b>{{sign .Standing}}</b> <span>percentile · rank {{.Rank}} of {{.Of}}</span>{{end}}</p>
+        {{groupHist . false}}
+        <p class="axis"><span>composite 0</span><span>100</span></p>
+      </figure>
+      <figure class="metric">
+        <figcaption>Among all {{.Year}} judges statewide</figcaption>
+        <p class="val"><b>{{sign .Global.Standing}}</b> <span>percentile · rank {{.Global.Rank}} of {{.Global.Of}}</span></p>
+        {{groupHist . true}}
+        <p class="axis"><span>composite 0</span><span>100</span></p>
+      </figure>
+      <figure class="metric">
+        <figcaption>Survey responses</figcaption>
+        <p class="val"><b>{{.Survey.Responses}}</b> <span>{{resp .Placement}} among peers · {{resp .Global}} statewide</span></p>
+        {{metricHist . "responses" (float .Survey.Responses)}}
+        <p class="axis"><span>{{sign (poolMin . "responses")}}</span><span>{{sign (poolMax . "responses")}}</span></p>
+      </figure>
+    </div>
+    <p class="composite-note">Composite index <b>{{f2 .Composite}}</b> among peers ({{f2 .Global.Composite}} statewide): the mean of the three percentiles below. Rank orders by it.</p>
+    <div class="metrics">
+      <figure class="metric">
+        <figcaption>Overall survey grade</figcaption>
+        <p class="val"><b>{{f2 .Metrics.Overall}}</b> <span>of 4{{if not .Small}} · {{f2 .Pct.Overall}} percentile{{end}}</span></p>
+        {{metricHist . "overall" .Metrics.Overall}}
+        <p class="axis"><span>{{f2 (poolMin . "overall")}}</span><span>{{f2 (poolMax . "overall")}}</span></p>
+      </figure>
+      <figure class="metric">
+        <figcaption>Mean of category scores</figcaption>
+        <p class="val"><b>{{f2 .Metrics.Categories}}</b> <span>of 4{{if not .Small}} · {{f2 .Pct.Categories}} percentile{{end}}</span></p>
+        {{metricHist . "categories" .Metrics.Categories}}
+        <p class="axis"><span>{{f2 (poolMin . "categories")}}</span><span>{{f2 (poolMax . "categories")}}</span></p>
+      </figure>
+      <figure class="metric">
+        <figcaption>Attorneys saying “meets standards”</figcaption>
+        <p class="val"><b>{{share .Metrics.AttyMeets}}</b> <span>{{if not .Small}}{{f2 .Pct.AttyMeets}} percentile{{end}}</span></p>
+        {{metricHist . "atty" .Metrics.AttyMeets}}
+        <p class="axis"><span>{{share (poolMin . "atty")}}</span><span>{{share (poolMax . "atty")}}</span></p>
+      </figure>
+    </div>
+
+    <div class="halves">
+      <div class="half">
+        <h3>Attorneys</h3>
+        <dl>
+          {{with .Survey.Overall}}{{if has . "att"}}<div><dt>Overall grade</dt><dd>{{f2 (index . "att")}}</dd></div>{{end}}{{end}}
+          {{with .Survey.Meets}}{{if has . "att"}}<div><dt>Say “meets standards”</dt><dd>{{share (index . "att")}}</dd></div>{{end}}{{end}}
+        </dl>
+      </div>
+      <div class="half">
+        <h3>Non-attorneys</h3>
+        <dl>
+          {{with .Survey.Overall}}{{if has . "non"}}<div><dt>Overall grade</dt><dd>{{f2 (index . "non")}}</dd></div>{{end}}{{end}}
+          {{with .Survey.Meets}}{{if has . "non"}}<div><dt>Say “meets standards”</dt><dd>{{share (index . "non")}}</dd></div>{{else}}<div><dt>Say “meets standards”</dt><dd>not reported</dd></div>{{end}}{{end}}
+        </dl>
+      </div>
+    </div>
+
+
+    <table class="data cats">
+      <caption>Category scores (0–4) against {{cohort .Level}} peers</caption>
+      <thead><tr><th scope="col">Category</th><th scope="col" class="n">Score</th><th scope="col" class="n">Peer median</th><th scope="col" class="bar-col">Peer range <span class="sr">(dot is this judge, line is the median)</span></th></tr></thead>
+      <tbody>
+      {{range catNames .}}{{$v := catScore (index $e.Survey.Categories .)}}{{$m := catMedian $e .}}
+        <tr><th scope="row">{{.}}</th><td class="n">{{f2 $v}}<span class="med">median {{f2 $m}}</span></td><td class="n">{{f2 $m}}</td>
+          {{$lo := catLo $e .}}{{$hi := catHi $e .}}<td class="bar-col"><span class="bar" aria-hidden="true"><em style="left:{{pos $lo $hi $m}}"></em><i style="left:{{pos $lo $hi $v}}"></i></span><span class="range" aria-hidden="true"><span>{{f2 $lo}}</span><span>{{f2 $hi}}</span></span></td></tr>
+      {{end}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="empty">{{if .InsufficientResponses}}The state did not publish a {{.Year}} survey report: too few responses.{{else}}No survey report was published for this cycle.{{end}} This evaluation is not ranked.</p>
+    {{end}}
+
+    {{with .Survey.History}}
+    <table class="data hist-years">
+      <caption>Annual overall grades reported in the {{$e.Year}} report</caption>
+      <thead><tr><th scope="col">Year</th>{{range .}}<th scope="col" class="n">{{.Year}}</th>{{end}}</tr></thead>
+      <tbody><tr><th scope="row">Grade</th>{{range .}}<td class="n">{{f2 .Score}}</td>{{end}}</tr>
+      <tr><th scope="row">Responses</th>{{range .}}<td class="n">{{.N}}</td>{{end}}</tr></tbody>
+    </table>
+    {{end}}
+
+    <div class="commission">
+      <h3>{{template "commission" .}}</h3>
+      {{range .Narrative}}<p>{{.}}</p>{{end}}
+      <p class="src"><a href="{{.URL}}">State evaluation page</a>{{with .ReportURL}} · <a href="{{.}}">{{$e.Survey.ReportYear}} survey report (PDF)</a>{{end}}</p>
+    </div>
+  </section>
+  {{end}}
+</main>
+{{template "bottom" .}}{{end}}

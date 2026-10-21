@@ -1,0 +1,61 @@
+{{define "judges"}}{{template "top" .}}
+<main id="main" class="wrap">
+  <section class="lead">
+    <h1>Every evaluation, ranked</h1>
+    <p class="sub">{{len .Rows}} evaluations from the 2016–{{.Year}} retention cycles. Rank and percentile compare each evaluation with the others at its court level in the same cycle.</p>
+  </section>
+  <form class="filters" id="filters" aria-controls="table">
+    <label>Cycle <select name="year"><option value="">All cycles</option>{{range years}}<option value="{{.}}"{{if eq . $.Year}} selected{{end}}>{{.}}</option>{{end}}</select></label>
+    <label>Court <select name="cohort"><option value="">All courts</option><option value="appellate">Appellate</option><option value="district">District</option><option value="county">County</option></select></label>
+    <label class="grow">Name or county <input type="search" name="q" placeholder="e.g. Larson or Boulder" autocomplete="off"></label>
+    <output name="count" aria-live="polite"></output>
+  </form>
+  <section class="dists" aria-labelledby="dists-h">
+    <h2 id="dists-h">How composite scores spread</h2>
+    <p class="note">Composite index (0–100) for every ranked evaluation, statewide and by court level. Statewide composites compare all courts together; court-level composites compare peers only.</p>
+    {{range years}}
+    <div class="dist-row" data-year="{{.}}">
+      <h3>{{.}}</h3>
+      {{range cycleDists .}}{{if .N}}<figure class="metric"><figcaption>{{.Title}} <span>· {{.N}}</span></figcaption>{{.SVG}}<p class="axis"><span>0</span><span>100</span></p></figure>{{end}}{{end}}
+    </div>
+    {{end}}
+  </section>
+  <div class="scroller" tabindex="0" role="region" aria-label="All evaluations">
+  <table class="data" id="table">
+    <thead><tr>
+      <th scope="col" class="n" data-sort="num" aria-sort="none"><button type="button">Court rank</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Percentile</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Statewide</button></th>
+      <th scope="col" data-sort="text"><button type="button">Judge</button></th>
+      <th scope="col" data-sort="text"><button type="button">Court</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Cycle</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Survey grade</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Category mean</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Attorneys “meets”</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Non-attorneys “meets”</button></th>
+      <th scope="col" class="n" data-sort="num"><button type="button">Responses · standing</button></th>
+      <th scope="col" data-sort="text"><button type="button">Commission</button></th>
+    </tr></thead>
+    <tbody>
+    {{range .Rows}}
+      <tr data-year="{{.Year}}" data-cohort="{{cohort .Level | slug}}"{{if low .}} class="is-low"{{end}}>
+        <td class="n" data-v="{{if .Ranked}}{{.Rank}}{{else}}99999{{end}}">{{if .Ranked}}{{.Rank}}<span class="of"> / {{.Of}}</span>{{else}}–{{end}}</td>
+        <td class="n" data-v="{{if and .Ranked (not .Small)}}{{f2 .Standing}}{{else}}-1{{end}}">{{if not .Ranked}}–{{else if .Small}}<span class="of" title="Groups of 10 or fewer show rank only">small group</span>{{else}}<b>{{f2 .Standing}}</b>{{end}}</td>
+        <td class="n" data-v="{{if .Ranked}}{{.Global.Rank}}{{else}}99999{{end}}">{{if .Ranked}}{{.Global.Rank}}<span class="of"> / {{.Global.Of}}</span>{{else}}–{{end}}</td>
+        <td><a href="{{$.Root}}judges/{{.Key}}/index.html#y{{.Year}}">{{.SortName}}</a></td>
+        <td>{{short .}}</td>
+        <td class="n">{{.Year}}</td>
+        <td class="n" data-v="{{if .Ranked}}{{f2 .Metrics.Overall}}{{else}}-1{{end}}">{{if .Ranked}}{{f2 .Metrics.Overall}}{{else}}–{{end}}</td>
+        <td class="n" data-v="{{if .Ranked}}{{f2 .Metrics.Categories}}{{else}}-1{{end}}">{{if .Ranked}}{{f2 .Metrics.Categories}}{{else}}–{{end}}</td>
+        <td class="n" data-v="{{if .Ranked}}{{f2 .Metrics.AttyMeets}}{{else}}-1{{end}}">{{if .Ranked}}{{share .Metrics.AttyMeets}}{{else}}–{{end}}</td>
+        <td class="n" data-v="{{with .Survey.Meets}}{{if has . "non"}}{{f2 (index . "non")}}{{else}}-1{{end}}{{else}}-1{{end}}">{{with .Survey.Meets}}{{if has . "non"}}{{share (index . "non")}}{{else}}–{{end}}{{else}}–{{end}}</td>
+        <td class="n" data-v="{{.Survey.Responses}}">{{if .Survey.Responses}}{{.Survey.Responses}}{{if .Ranked}}<span class="of"> · {{if .Small}}#{{.RespRank}}{{else}}{{ordinal (int .RespPct)}}{{end}}</span>{{end}}{{else}}–{{end}}</td>
+        <td>{{if eq .Recommendation "does_not_meet"}}<span class="flag">Does not meet</span>{{else if eq .Recommendation "meets"}}Meets{{else}}{{.RecommendationText}}{{end}}{{with .Vote.Tally .Recommendation}} <span class="of">{{.}}</span>{{end}}</td>
+      </tr>
+    {{end}}
+    </tbody>
+  </table>
+  </div>
+  <p class="empty" id="none" hidden>No evaluations match. Clear the name filter or choose “All cycles”.</p>
+</main>
+{{template "bottom" .}}{{end}}

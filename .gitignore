@@ -1,0 +1,14 @@
+# raw mirror of the state's pages and PDFs (rebuild with scrape/fetch.py)
+cache/
+# generated site (rebuild with go run ./gen)
+public/
+# local design-review captures and machine-only impeccable config
+.impeccable/review/
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+# Python / OS / editor noise
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+*.tfplan

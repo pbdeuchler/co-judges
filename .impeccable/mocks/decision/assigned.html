@@ -1,0 +1,58 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f6f2;--buck:#8a6a43;--buck-d:#5f4629;--ox:#6e1f24;--ink:#1d1b19;--mute:#6b645b;--rule:#ddd6ca;--foil:#c9a24a}
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);font:16px/1.45 Barlow,sans-serif}
+header{background:var(--buck);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 1px,transparent 1px 3px);color:#fbf6ec;padding:0 48px;height:72px;display:flex;align-items:center;gap:40px}
+.mark{font:700 26px/1 "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase}
+.mark small{display:block;font:500 12px/1.3 Barlow;letter-spacing:.04em;text-transform:none;opacity:.8}
+nav{display:flex;gap:28px;font-weight:500}
+nav a{color:inherit;text-decoration:none;opacity:.85}nav a.on{opacity:1;border-bottom:2px solid var(--foil);padding-bottom:4px}
+.sel{margin-left:auto;display:flex;align-items:center;gap:12px;font-weight:500}
+select{font:600 16px Barlow;padding:8px 36px 8px 12px;border:1px solid var(--buck-d);border-radius:4px;background:#fbf6ec;color:var(--ink)}
+main{padding:36px 48px;display:grid;grid-template-columns:1fr 340px;gap:40px}
+h1{font:600 34px/1.1 "Barlow Condensed";letter-spacing:.01em}
+.sub{color:var(--mute);margin:6px 0 24px}
+table{width:100%;border-collapse:collapse}
+th{font:600 13px Barlow;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);text-align:left;padding:0 12px 10px;border-bottom:2px solid var(--ink)}
+th.n,td.n{text-align:right;font-variant-numeric:tabular-nums}
+td{padding:12px;border-bottom:1px solid var(--rule);vertical-align:middle}
+.spine{display:flex;flex-direction:column;align-items:center;justify-content:center;width:56px;height:64px;background:var(--buck);border-radius:2px;padding:6px 0;gap:4px}
+.spine b{display:block;width:44px;background:var(--ox);color:var(--foil);font:700 20px/1 "Barlow Condensed";text-align:center;padding:5px 0}
+.spine i{display:block;width:44px;background:var(--ink);color:#d9c58f;font:600 10px/1 "Barlow Condensed";text-align:center;padding:3px 0;font-style:normal;letter-spacing:.05em}
+.nm{font-weight:600;font-size:18px}.ct{color:var(--mute);font-size:14px}
+.shelf{display:flex;align-items:flex-end;gap:1px;height:30px;width:220px}
+.shelf span{flex:1;background:#cbbfa9;height:70%}
+.shelf span.me{background:var(--ox);height:100%}
+.pct{font:600 22px "Barlow Condensed"}
+.rec{font-size:13px;font-weight:600;padding:3px 8px;border-radius:3px;background:#e7efe3;color:#2f5a2a}
+.rec.no{background:#f4e2e1;color:var(--ox)}
+.cite{font:400 12px "Source Serif 4";color:var(--mute);font-style:italic}
+aside{border-left:1px solid var(--rule);padding-left:32px}
+aside h2{font:600 15px Barlow;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:12px}
+aside p{font:400 16px/1.55 "Source Serif 4";margin-bottom:14px}
+.k{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding:10px 0;font-variant-numeric:tabular-nums}
+.k b{font:600 20px "Barlow Condensed"}
+</style></head><body>
+<header><div class="mark">Bench Record<small>Colorado judicial evaluations, compared</small></div>
+<nav><a class="on">My ballot</a><a>All judges</a><a>Past cycles</a><a>Method</a></nav>
+<div class="sel">County <select><option>Boulder</option></select></div></header>
+<main><section>
+<h1>Your 2026 retention ballot · Boulder County</h1>
+<p class="sub">13 judges. Ranked against every evaluated judge at the same court level, 2016–2026.</p>
+<table><thead><tr><th></th><th>Judge</th><th>Place among peers</th><th class="n">Percentile</th><th class="n">Survey</th><th class="n">Attys “meets”</th><th>Commission</th></tr></thead><tbody>
+<tr><td><div class="spine"><b>41</b><i>OF 452</i></div></td><td><div class="nm">Michael Kotlarczyk</div><div class="ct">District Court · 20th</div><div class="cite">2026 Colo. JPE 20th Dist. 4</div></td><td><div class="shelf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="me"></span><span></span><span></span></div></td><td class="n pct">91</td><td class="n">3.6</td><td class="n">100%</td><td><span class="rec">Meets</span></td></tr>
+<tr><td><div class="spine"><b>63</b><i>OF 452</i></div></td><td><div class="nm">Elizabeth Brodsky</div><div class="ct">County Court · Boulder</div><div class="cite">2026 Colo. JPE Boulder Cty. 1</div></td><td><div class="shelf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="me"></span><span></span><span></span><span></span><span></span></div></td><td class="n pct">86</td><td class="n">3.5</td><td class="n">96%</td><td><span class="rec">Meets</span></td></tr>
+<tr><td><div class="spine"><b>188</b><i>OF 452</i></div></td><td><div class="nm">Nancy Salomone</div><div class="ct">District Court · 20th</div><div class="cite">2026 Colo. JPE 20th Dist. 6</div></td><td><div class="shelf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="me"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></td><td class="n pct">58</td><td class="n">3.2</td><td class="n">85%</td><td><span class="rec">Meets</span></td></tr>
+<tr><td><div class="spine"><b>201</b><i>OF 452</i></div></td><td><div class="nm">J. Chris Larson</div><div class="ct">District Court · 20th</div><div class="cite">2026 Colo. JPE 20th Dist. 5</div></td><td><div class="shelf"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="me"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></td><td class="n pct">55</td><td class="n">3.2</td><td class="n">93%</td><td><span class="rec">Meets</span></td></tr>
+<tr><td><div class="spine"><b>371</b><i>OF 412</i></div></td><td><div class="nm">Monica Haenselman</div><div class="ct">County Court · Boulder</div><div class="cite">2026 Colo. JPE Boulder Cty. 2</div></td><td><div class="shelf"><span></span><span></span><span class="me"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></td><td class="n pct">9</td><td class="n">2.5</td><td class="n">82%</td><td><span class="rec">Meets</span></td></tr>
+</tbody></table></section>
+<aside><h2>How to read a row</h2>
+<p>The spine is the judge’s place among all peers at the same court level. The shelf shows that place: left is lowest, right is highest.</p>
+<p>Percentile blends three survey numbers from the state’s report. Each links to the PDF.</p>
+<div class="k"><span>Judges on Boulder ballots</span><b>13</b></div>
+<div class="k"><span>Commission said “does not meet”</span><b>0</b></div>
+<div class="k"><span>Lowest survey score</span><b>2.5</b></div></aside></main>
+</body></html>

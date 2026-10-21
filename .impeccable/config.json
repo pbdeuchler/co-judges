@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "public/judges/index.html"
+        ],
+        "createdAt": "2026-10-21T04:37:40.339Z",
+        "reason": "model triage: .scroller wraps a data table whose cells have 12px padding; text never touches the frame"
+      }
+    ]
+  }
+}

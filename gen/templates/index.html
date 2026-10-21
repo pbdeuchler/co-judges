@@ -1,0 +1,31 @@
+{{define "index"}}{{template "top" .}}
+<main id="main" class="wrap">
+  <section class="lead">
+    <h1>Find the judges on your {{.Year}} ballot</h1>
+    <p class="sub">Every Colorado judge standing for retention, placed among this year’s peers at the same court level statewide. Pick your county.</p>
+    <ul class="counties">
+      {{range .Counties}}<li><a href="{{$.Root}}ballot/{{slug .}}/index.html">{{.}}</a></li>{{end}}
+    </ul>
+  </section>
+  <div class="split">
+    <section aria-labelledby="statewide">
+      <h2 class="sign" id="statewide">On every ballot · Supreme Court and Court of Appeals</h2>
+      <div class="rows">{{range .Rows}}{{template "row" (row $.Root .)}}{{end}}</div>
+    </section>
+    <aside class="glance" aria-label="{{.Year}} at a glance">
+      <h2>{{.Year}} statewide</h2>
+      {{template "statewideGlance" .}}
+      <p class="note read">A percentile of 91 means the judge’s survey results beat 91% of judges at that court level in the same cycle. Appellate judges, too few for their own percentile, show their statewide percentile. <a href="{{.Root}}method/index.html">How it’s built</a>.</p>
+    </aside>
+  </div>
+</main>
+{{template "bottom" .}}{{end}}
+
+{{define "statewideGlance"}}{{$g := glance (ballotYear .Entries .Year)}}
+<dl>
+  <div><dt>Judges standing for retention</dt><dd>{{$g.Total}}</dd></div>
+  <div><dt>In the bottom quarter of peers</dt><dd>{{$g.Low}}</dd></div>
+  <div><dt>Commission said “does not meet”</dt><dd>{{$g.NotMeet}}</dd></div>
+  <div><dt>Commission vote was split</dt><dd>{{$g.Split}}</dd></div>
+  <div><dt>No survey published</dt><dd>{{$g.NoSurvey}}</dd></div>
+</dl>{{end}}
