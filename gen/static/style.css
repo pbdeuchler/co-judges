@@ -190,6 +190,7 @@ td .flag{display:inline;background:var(--alert-soft);padding:0 var(--s2);white-s
 
 .foot{border-top:6px solid var(--sign);background:var(--block);color:var(--block-ink);padding:var(--s5) var(--s7)}
 .foot p{max-width:90ch;font-size:var(--small)}
+.foot p+p{margin-top:var(--s2)}
 .foot :focus-visible{outline-color:var(--sign)}
 
 /* ---------- narrow screens ---------- */
