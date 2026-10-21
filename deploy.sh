@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Build the site and publish it to S3 behind CloudFront at co-judges.philip.computer.
-# Infrastructure lives in ../terraform/prod (client_sites "co-judges" in cloudfront.tf).
 #
 # Usage: ./deploy.sh [--scrape] [--dry-run]
 #   --scrape   re-fetch and re-parse the state's reports before building
@@ -47,7 +46,7 @@ fi
 dist=$(aws cloudfront list-distributions --output text \
   --query "DistributionList.Items[?Aliases.Items && contains(Aliases.Items, '$DOMAIN')].Id | [0]")
 if [[ -z "$dist" || "$dist" == "None" ]]; then
-  echo "no CloudFront distribution has alias $DOMAIN; apply ../terraform/prod first" >&2
+  echo "no CloudFront distribution has alias $DOMAIN; create the hosting first" >&2
   exit 1
 fi
 aws cloudfront create-invalidation --distribution-id "$dist" --paths '/*' --query 'Invalidation.Id' --output text >/dev/null

@@ -27,7 +27,7 @@ The site deploys anywhere as static files. Open `public/index.html` directly or 
 
 Cache headers: fonts are immutable for a year, CSS/JS/SVG for an hour, pages for five minutes, and every deploy invalidates `/*`.
 
-The infrastructure (bucket, OAC-locked bucket policy, ACM certificate, distribution, Route 53 A/AAAA records) is defined in the `terraform` repo: `prod/cloudfront.tf` (`client_sites["co-judges"]`) and the `co-judges-client` entry in `prod/projects.tf`. Run `deploy.sh` with AWS credentials that can write the bucket and create invalidations.
+Hosting is a private S3 bucket read by a CloudFront distribution (origin access control) whose alias is the site's domain. The distribution must use `index.html` as its default root object; the site's own links always name `index.html`, so no other rewriting is needed. Run `deploy.sh` with AWS credentials that can write the bucket and create invalidations.
 
 ## Data
 
